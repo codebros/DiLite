@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="DiLite : Lightweight Dependency Injection Framework for C++" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>DiLite</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/codebros/DiLite">Fork Me on GitHub</a>
+
+          <h1 id="project_title">DiLite</h1>
+          <h2 id="project_tagline">Lightweight Dependency Injection Framework for C++</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/codebros/DiLite/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/codebros/DiLite/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>Welcome to DiLite.</h3>
+
+<p>DiLite allows developers to perform constructor injection of dependencies by creating a binding between a pair of types <code>I</code> and <code>T</code> such that <code>T</code> is a concrete implementation of <code>I</code>. This is based on the idea of interfaces from other object-oriented languages, and is achieved in C++ and DiLite using pure abstract classes.</p>
+
+<p>The bindings can be used to resolve objects in either transient- or Singleton scope, thus freeing the developer to focus on business logic instead.</p>
+
+<h3>Please add some Samurais!</h3>
+
+<div class="highlight">
+<pre><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">DI</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">().</span><span class="n">Bind</span><span class="o">&lt;</span><span class="n">IWeapon</span><span class="p">,</span> <span class="n">Shuriken</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">DI</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">().</span><span class="n">Bind</span><span class="o">&lt;</span><span class="n">IWarrior</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">CreateSamurai</span><span class="p">);</span>
+
+    <span class="n">IWarrior</span><span class="o">*</span> <span class="n">w1</span> <span class="o">=</span> <span class="n">DI</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">().</span><span class="n">Resolve</span><span class="o">&lt;</span><span class="n">IWarrior</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">IWarrior</span><span class="o">*</span> <span class="n">w2</span> <span class="o">=</span> <span class="n">DI</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">().</span><span class="n">Resolve</span><span class="o">&lt;</span><span class="n">IWarrior</span><span class="o">&gt;</span><span class="p">();</span>
+
+    <span class="n">w1</span><span class="o">-&gt;</span><span class="n">Attack</span><span class="p">(</span><span class="n">w2</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">IWarrior</span><span class="o">*</span> <span class="n">CreateSamurai</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Samurai</span><span class="p">(</span><span class="n">DI</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">().</span><span class="n">Resolve</span><span class="o">&lt;</span><span class="n">IWeapon</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<h3>Authors and Contributors</h3>
+
+<p>DiLite was initiated in 2012 during an Advanced Programming course in C++ at Aalborg University, Denmark.
+After hand-in, the project has been released as open-source.</p>
+
+<p>Original project owners are:</p>
+
+<ul>
+<li>Jeppe Pihl (<a href="https://twitter.com/#!/jpihl">@jpihl</a>)</li>
+<li>Lasse Linnerup Christiansen (<a href="https://twitter.com/#!/sw_lasse">@sw_lasse</a>)</li>
+<li>Kenneth Fuglsang Christensen (<a href="https://twitter.com/#!/kfuglsang">@kfuglsang</a>)</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">DiLite maintained by <a href="https://github.com/codebros">codebros</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
