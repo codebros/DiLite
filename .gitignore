@@ -1,0 +1,9 @@
+# C++
+*.out
+*.exe
+*.o
+bin
+
+# IDE files
+*.sublime-project
+*.sublime-workspace
